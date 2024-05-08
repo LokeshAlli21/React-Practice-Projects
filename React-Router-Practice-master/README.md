@@ -11,4 +11,4 @@ by doing this project i get learned to use
 ## Screenshots
 
 ![App Screenshot](https://github.com/LokeshAlli21/React-Practice-Projects/blob/master/React-Router-Practice-master/screenshots/1.png)
-![App Screenshot]([https://github.com/LokeshAlli21/React-Router-Practice/blob/master/screenshots/2.png](https://github.com/LokeshAlli21/React-Practice-Projects/blob/master/React-Router-Practice-master/screenshots/2.png))
+![App Screenshot](https://github.com/LokeshAlli21/React-Practice-Projects/blob/master/React-Router-Practice-master/screenshots/2.png)
