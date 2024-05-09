@@ -3,5 +3,5 @@
 -
 ## Screenshots
 
-![App Screenshot](https://github.com/LokeshAlli21/React-Practice-Projects/blob/master/Todo%using%Context%API/screenshots/1.png)
-![App Screenshot](https://github.com/LokeshAlli21/React-Practice-Projects/blob/master/Todo%using%Context%API/screenshots/2.png)
+![App Screenshot](https://github.com/LokeshAlli21/React-Practice-Projects/blob/master/Todo%20using%20Context%20API/screenshots/1.png)
+![App Screenshot](https://github.com/LokeshAlli21/React-Practice-Projects/blob/master/Todo%20using%20Context%20API/screenshots/2.png)
