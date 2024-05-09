@@ -31,6 +31,6 @@ export const store = configureStore({
 
 export const {addTodo, removeTodo} = todoSlice.actions
 
-//export const useReduxStore = () => {
-   // return (useSelector(state => state.todos))
-//}
+export const useReduxStore = () => {
+    return (useSelector(state => state.todos))
+}
