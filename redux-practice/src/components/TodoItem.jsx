@@ -1,47 +1,32 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { removeTodo, updateTodo } from '../store/store';
 
-function TodoItem(props) {
-
-    const [editable, setEditable] = useState(false)
-    const [input, setInput] = useState(props.text)
-
-    const dispatch = useDispatch()
-
-    const handleUpdate = () => {
-        setEditable(false)
-        dispatch(updateTodo({
-            id: props.id,
-            input: input,
-        }))
-    }
-
-    const handleChange = (e) => {
-        setInput(e.target.value)
-    }
-
-    const handleRemove =() => {
-        dispatch(removeTodo(props.id))
-    }
-
+function TodoItem({todo, deleteTodo, updateTodo, setCompleted}) {
+  const [isEditable, setIsEditable] = useState(false)
+  const [isCompleted, setIsCompleted] = useState(todo.completed)
+  const [msg, setMSG] = useState(todo.text)
+  const handleChange = (e) => {
+    setMSG(e.target.value)
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    isEditable && updateTodo(todo.id, msg)
+    setIsEditable(p => !p)
+  }
+  const handleCompleted = () => {
+    setIsCompleted(p => !p)
+    setCompleted({id: todo.id, value: isCompleted})
+  }
   return (
-    <div key={props.id}  className='flex flex-row items-center justify-between w-full p-2 text-white rounded-md bg-zinc-600 '>
-        <input 
-        type="text"
-        value={input}
+    <form className='flex flex-row items-center justify-around w-full p-1 mb-2 rounded flex-nowrap bg-slate-400' onSubmit={handleSubmit} >
+      <input type="checkbox" checked={isCompleted} onChange={handleCompleted} />
+        <input type="text" 
+        className={`w-full p-1 bg-transparent outline-none ${isCompleted ? ' line-through' : ''}`}
+        value={msg}
         onChange={handleChange}
-        disabled={!editable}
-         className=' bg-transparent text-white outline-none' />
-        { editable ?
-        <button onClick={handleUpdate}>✔️</button>
-        : 
-        <div className=' flex flex-nowrap items-center justify-center space-x-3'>
-            <button onClick={() => {setEditable( p => !p)}}>✏️</button>
-            <button className='px-2 py-1 -my-1 bg-red-600 rounded-sm min-w-10' onClick={handleRemove}>Delete</button>
-        </div> 
-        }
-    </div>
+        readOnly={!isEditable} />
+        <button className='p-1 px-2 mr-1 text-white bg-blue-500 rounded ' type="submit" >{isEditable ? 'Save' : 'Edit'}</button>
+        <button className='p-1 text-white bg-red-500 rounded 'onClick={() => {deleteTodo(todo.id)}} >Delete</button>
+    </form>
   )
 }
 
