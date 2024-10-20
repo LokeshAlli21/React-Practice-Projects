@@ -17,7 +17,7 @@ function RTE({
         <Controller
         name={name || "content"}
         control={control}
-        render={({field: {onchange}}) => (
+        render={({field: {onChange}}) => (
             <Editor
             apiKey={env.TinyMCE_API_Key}
             initialValue={defaultValue}
@@ -51,7 +51,7 @@ function RTE({
                 "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat | help",
                 content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }"
             }}
-            onEditorChange={onchange} />
+            onEditorChange={onChange} />
         )} />
     </div>
   )
