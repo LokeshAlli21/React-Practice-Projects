@@ -38,6 +38,7 @@ class Service {
             return await this.databases.updateDocument(
                 env.databaseId,
                 env.collectionId,
+                slug,
                 {
                     title,
                     content, 

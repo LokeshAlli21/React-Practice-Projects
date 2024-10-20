@@ -5,12 +5,12 @@ import appwriteService from '../../appwrite/conf'
 import { useNavigate } from 'react-router-dom' 
 import { useSelector } from 'react-redux'
 
-function PostForm({post}) {
+function PostForm({post, slug}) {
     // const [loading, setLoading] = useState(false)
     const {register, handleSubmit,watch,setValue, control , getValues } = useForm({
         defaultValues: {
             title: post?.title || '',
-            slug: post?.slug || '',
+            slug: slug || '',
             content: post?.content || '',
             status: post?.status || 'active',
         }
@@ -26,8 +26,7 @@ function PostForm({post}) {
 
     const submit = async(data) => {
         if(post) {
-            const file = data.image[0]? appwriteService.uploadFile(data.image[0]) :null
-
+            const file = data.image[0]? await appwriteService.uploadFile(data.image[0]) :null
             if(file){
                 appwriteService.deleteFile(post.featuredImage)
             }
