@@ -95,6 +95,7 @@ function PostForm({post, slug}) {
                     {...register("title", { required: true })}
                 />
                 <Input
+                    readOnly={post? true : false}
                     label="Slug :"
                     placeholder="Slug"
                     className="mb-4"
