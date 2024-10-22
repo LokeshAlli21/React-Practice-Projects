@@ -25,7 +25,7 @@ function Home() {
                     className=' p-2 w-full'>
                         <h1
                         className=' text-2xl font-bold hover:text-gray-500'>
-                            Login to read posts
+                            Nothing to see
                         </h1>
                     </div>
                 </div>
